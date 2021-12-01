@@ -1,0 +1,19 @@
+<mat-dialog-content *ngIf="gasolinera">
+    <div fxLayout="row" fxLayoutGap="20px " fxFlexFill fxLayoutAlign="start start">
+        
+        <div xLayout="column wrap" fxLayoutGap="20px grid">
+            <h1>{{gasolinera.rotulo}}</h1>
+            <p>{{gasolinera.direccion}} - {{gasolinera.municipio}} {{gasolinera.cP}}</p>
+            <p>{{gasolinera.provincia}}</p>
+            
+            <p>Horario: {{gasolinera.horario}}</p>
+
+            <ul>
+                <li>Gasolina 95: {{gasolinera.precioGasolina95E5}}€</li>
+                <li>Gasolina 98: {{gasolinera.precioGasolina98E5}}€</li>
+                <li>Diesel: {{gasolinera.precioGasoleoA}}€</li>
+            </ul>
+        </div>
+
+    </div>
+</mat-dialog-content>

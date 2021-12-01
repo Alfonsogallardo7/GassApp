@@ -1,0 +1,15 @@
+<mat-card class="gasolinera-card" >
+    <mat-card-title class="gasolinera-tittle">{{gasolineraInput.rotulo}}</mat-card-title>
+    <mat-card-content >
+        <p class="gasolinera-overview">{{gasolineraInput.provincia}}</p>
+        <p class="gasolinera-overview">{{gasolineraInput.municipio}}</p>
+        <ul>
+            <li>Gasolina 95: {{gasolineraInput.precioGasolina95E5}}€</li>
+            <li>Gasolina 98: {{gasolineraInput.precioGasolina98E5}}€</li>
+            <li>Diesel: {{gasolineraInput.precioGasoleoA}}€</li>
+        </ul>
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <button mat-button (click)="openDetailGasolinera(gasolineraInput.ideess)">Mostar Detalles</button>
+    </mat-card-actions>
+</mat-card>
