@@ -1,17 +1,19 @@
-<mat-form-field appearance="fill">
-    <mat-label >Provincia</mat-label>
-    <mat-select [(ngModel)]="provinciaSelected">
-    <mat-option *ngFor="let provincia of listProvincia" [value]="provincia.Provincia">{{provincia.Provincia}}</mat-option> 
-    </mat-select>
-</mat-form-field>
+<div fxLayout="row wrap" fxLayoutGap='20px grid' fxFlexFill fxLayoutAlign="center" style="background-color: beige;">
+    <mat-form-field appearance="fill">
+        <mat-label >Provincia</mat-label>
+        <mat-select [(ngModel)]="provinciaSelected">
+        <mat-option *ngFor="let provincia of listProvincia" [value]="provincia.Provincia">{{provincia.Provincia}}</mat-option> 
+        </mat-select>
+    </mat-form-field>
 
-<mat-label>Precio Maximo</mat-label>
-<mat-slider thumbLabel min="0" max="2" step="0.001" [(value)]="precio" ></mat-slider>
-<span class="margin">{{precio}}€</span>
+    <mat-label>Precio Gasolina E95</mat-label>
+    <mat-slider thumbLabel min="0" max="2" step="0.001" [(value)]="precio" ></mat-slider>
+    <span class="margin">{{precio}}€</span>
 
-<button mat-button (click)="doFilter()">filtrar</button>
+    <button mat-button (click)="doFilter()">filtrar</button>
 
 
-<div class="scroll-container" fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutGap="20px grid" fxFlexFill fxLayoutAlign="start start">
-    <app-gasolinera-item fxFlex="15" class="gasolinera-item" *ngFor="let gasolinera of listGasolineraFilter" [gasolineraInput]="gasolinera"></app-gasolinera-item>
+    <div class="scroll-container" fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutGap="20px grid" fxFlexFill fxLayoutAlign="start start">
+        <app-gasolinera-item fxFlex="15" class="gasolinera-item" *ngFor="let gasolinera of listGasolineraFilter" [gasolineraInput]="gasolinera"></app-gasolinera-item>
+    </div>
 </div>
