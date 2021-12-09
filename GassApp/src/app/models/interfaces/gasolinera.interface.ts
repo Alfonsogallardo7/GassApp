@@ -27,3 +27,10 @@ export interface ProvinciaResponse {
     Provincia:  string;
     CCAA:       string;
 }
+
+export interface FavoriteList {
+  rotulo: string;
+  direccion: string;
+  uid: string;
+  provincia: string;
+}

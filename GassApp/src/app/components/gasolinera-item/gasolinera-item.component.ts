@@ -1,8 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { ListaEESSPrecio } from 'src/app/models/interfaces/gasolinera.interface';
+import { GasolineraService } from 'src/app/services/gasolinera.service';
 import { DialogGasolineraDetailsComponent } from '../dialog-gasolinera-details/dialog-gasolinera-details.component';
+import { LoginComponent } from '../login/login.component';
 
+const COLLECTION_FAVORITE = 'favorite';
 @Component({
   selector: 'app-gasolinera-item',
   templateUrl: './gasolinera-item.component.html',
@@ -10,7 +15,11 @@ import { DialogGasolineraDetailsComponent } from '../dialog-gasolinera-details/d
 })
 export class GasolineraItemComponent implements OnInit {
   @Input() gasolineraInput!: ListaEESSPrecio;
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, 
+    private gasolineraService: GasolineraService, 
+    private login: LoginComponent,
+    public auth: AngularFireAuth, 
+    private firestore: AngularFirestore) { }
 
   ngOnInit(): void {
   }
@@ -21,6 +30,15 @@ export class GasolineraItemComponent implements OnInit {
       width: 'auto',
       data: {gasolinera: this.gasolineraInput}
     });
+  }
+
+  addMovieToFavorite(){
+    if(this.gasolineraService.isLoggedIn()) {
+      this.markFavoriteDto.media_id=this.movieInput.id;
+      this.gasolineraService.addMovieToFavorite(this.markFavoriteDto).subscribe();
+    } else {
+      this.login.login();
+    }   
   }
 
 }

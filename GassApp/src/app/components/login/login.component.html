@@ -1,0 +1,5 @@
+<p><button [routerLink]="['/gasolinera-list']" (click)="login()">Login</button></p>
+
+<ul>
+    <li *ngFor="let user of userList | async">{{user.name}}</li>
+</ul>

@@ -18,6 +18,10 @@ export class GasolineraService {
     return this.http.get<ProvinciaResponse[]>('https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburantes/PreciosCarburantes/Listados/Provincias/')
   }
 
+  isLoggedIn(): boolean{
+    return localStorage.getItem('session_id') != null;
+  }
+
   parseAnyToGasolineraListResponse(jsonString: string) {
     let jsonStringReplaced = jsonString.replace(/Rótulo/gi, 'rotulo');
     jsonStringReplaced = jsonStringReplaced.replace(/C\.P\./gi, 'cP');
