@@ -20,6 +20,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule, USE_DEVICE_LANGUAGE, USE_EMULATOR as USE_AUTH_EMULATOR } from '@angular/fire/compat/auth';
 import { AngularFireAuthGuardModule } from '@angular/fire/compat/auth-guard';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
+    AngularFirestoreModule,
     AngularFireAuthGuardModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideFirestore(() => getFirestore()),
