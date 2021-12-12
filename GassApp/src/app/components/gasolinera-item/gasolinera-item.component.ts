@@ -32,13 +32,20 @@ export class GasolineraItemComponent implements OnInit {
     });
   }
 
-  addMovieToFavorite(){
+  addGasolineraToFavorite(){
     if(this.gasolineraService.isLoggedIn()) {
-      this.markFavoriteDto.media_id=this.movieInput.id;
-      this.gasolineraService.addMovieToFavorite(this.markFavoriteDto).subscribe();
-    } else {
+      this.firestore.collection(COLLECTION_FAVORITE).doc(this.gasolineraInput.ideess)
+      .set({ name: this.gasolineraInput?.rotulo,
+        direccion: this.gasolineraInput?.direccion,
+        municipio: this.gasolineraInput?.municipio});
+      localStorage.setItem('name', this.gasolineraInput?.rotulo?this.gasolineraInput?.rotulo: '');
+      localStorage.setItem('direccion', this.gasolineraInput?.direccion?this.gasolineraInput?.direccion: '');
+      localStorage.setItem('municipio', this.gasolineraInput?.municipio? this.gasolineraInput?.municipio: '');
+      localStorage.setItem('uid', this.gasolineraInput.ideess?this.gasolineraInput.ideess: '');
+    }else{
       this.login.login();
-    }   
+    } 
+     
   }
 
 }
