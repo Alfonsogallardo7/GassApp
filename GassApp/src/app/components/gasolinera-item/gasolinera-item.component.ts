@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { ListaEESSPrecio } from 'src/app/models/interfaces/gasolinera.interface';
+import { GasolineraFirebaseService } from 'src/app/services/gasolinera-firebase.service';
 import { GasolineraService } from 'src/app/services/gasolinera.service';
 import { DialogGasolineraDetailsComponent } from '../dialog-gasolinera-details/dialog-gasolinera-details.component';
 import { LoginComponent } from '../login/login.component';
@@ -18,7 +19,8 @@ export class GasolineraItemComponent implements OnInit {
   constructor(private dialog: MatDialog, 
     private gasolineraService: GasolineraService, 
     public auth: AngularFireAuth, 
-    private firestore: AngularFirestore) { }
+    private firestore: AngularFirestore,
+    private gasolineraFirebaseService: GasolineraFirebaseService) { }
 
   ngOnInit(): void {
   }
@@ -28,6 +30,12 @@ export class GasolineraItemComponent implements OnInit {
       height: 'auto',
       width: 'auto',
       data: {gasolinera: this.gasolineraInput}
+    });
+  }
+
+  addFavorito(){
+    this.gasolineraFirebaseService.addFavorite(this.gasolineraInput).then(resp => {
+
     });
   }
 

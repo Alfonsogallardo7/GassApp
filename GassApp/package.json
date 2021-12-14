@@ -24,6 +24,7 @@
     "@angular/router": "~13.0.0",
     "fire": "^0.55.1",
     "firebase": "^9.6.1",
+    "firestore": "^1.1.6",
     "rxfire": "^6.0.3",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
