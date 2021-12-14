@@ -10,6 +10,7 @@ export class GasolinerasFavoritasListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this
   }
 
 }
