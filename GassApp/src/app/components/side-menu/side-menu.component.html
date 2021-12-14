@@ -1,4 +1,18 @@
-<mat-sidenav-container class="example-container">
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+      <span>GassApp</span>
+      <span class="example-spacer"></span>
+      <button mat-button [matMenuTriggerFor]="menu">{{ getName() }}</button>
+      <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logout()">Logout</button>
+      </mat-menu>
+      <img class="example-icon profile-photo" width="48px" [src]="getPhoto()" />
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+
+<!--<mat-sidenav-container class="example-container">
     <mat-sidenav #sidenav mode="push" class="sidenav-menu">
       <h3 class="sidenav-title">Menú</h3>
       <mat-list role="list">
@@ -26,4 +40,4 @@
       <router-outlet></router-outlet>
       
     </mat-sidenav-content>
-  </mat-sidenav-container>
+  </mat-sidenav-container> -->

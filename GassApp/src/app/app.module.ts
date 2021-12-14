@@ -11,7 +11,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GasolineraListComponent } from './pages/gasolinera-list/gasolinera-list.component';
 import { DialogGasolineraDetailsComponent } from './components/dialog-gasolinera-details/dialog-gasolinera-details.component';
-import { LoginComponent } from './components/login/login.component';
 
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
@@ -20,6 +19,9 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule, USE_DEVICE_LANGUAGE, USE_EMULATOR as USE_AUTH_EMULATOR } from '@angular/fire/compat/auth';
 import { AngularFireAuthGuardModule } from '@angular/fire/compat/auth-guard';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
+import { ListasComponent } from './components/listas/listas.component';
+import { LoginComponent } from './components/login/login.component';
+import { GasolinerasFavoritasListComponent } from './components/gasolineras-favoritas-list/gasolineras-favoritas-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
     GasolineraListComponent,
     DialogGasolineraDetailsComponent,
     LoginComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    ListasComponent,
+    GasolinerasFavoritasListComponent
   ],
   imports: [
     BrowserModule,

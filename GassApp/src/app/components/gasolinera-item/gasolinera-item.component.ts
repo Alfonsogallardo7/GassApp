@@ -17,7 +17,6 @@ export class GasolineraItemComponent implements OnInit {
   @Input() gasolineraInput!: ListaEESSPrecio;
   constructor(private dialog: MatDialog, 
     private gasolineraService: GasolineraService, 
-    private login: LoginComponent,
     public auth: AngularFireAuth, 
     private firestore: AngularFirestore) { }
 
@@ -30,22 +29,6 @@ export class GasolineraItemComponent implements OnInit {
       width: 'auto',
       data: {gasolinera: this.gasolineraInput}
     });
-  }
-
-  addGasolineraToFavorite(){
-    if(this.gasolineraService.isLoggedIn()) {
-      this.firestore.collection(COLLECTION_FAVORITE).doc(this.gasolineraInput.ideess)
-      .set({ name: this.gasolineraInput?.rotulo,
-        direccion: this.gasolineraInput?.direccion,
-        municipio: this.gasolineraInput?.municipio});
-      localStorage.setItem('name', this.gasolineraInput?.rotulo?this.gasolineraInput?.rotulo: '');
-      localStorage.setItem('direccion', this.gasolineraInput?.direccion?this.gasolineraInput?.direccion: '');
-      localStorage.setItem('municipio', this.gasolineraInput?.municipio? this.gasolineraInput?.municipio: '');
-      localStorage.setItem('uid', this.gasolineraInput.ideess?this.gasolineraInput.ideess: '');
-    }else{
-      this.login.login();
-    } 
-     
   }
 
 }
